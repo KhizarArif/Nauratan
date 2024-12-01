@@ -1,0 +1,94 @@
+/* Add To Cart Css Start */
+.original_price {
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 1rem;
+}
+
+.btn-bold {
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+
+.add_cart_product_images {
+    display: flex;
+}
+
+
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail_image {
+    width: 100px;
+    height: 100px; 
+    margin: 5px;
+    cursor: pointer;
+}
+
+.add_to_cart_image {
+    width: 70%;
+    height: 350px;
+}
+
+
+.description_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #979797;
+    margin-bottom: 2rem;
+
+}
+
+.description_container div {
+    width: 30%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    max-width: fit-content;
+    transition: 0.3s;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    padding: 1rem;
+    padding-top: 0;
+    font-size: 1.5rem;
+}
+
+.description_container div.active {
+    border-bottom: 1px solid #555;
+}
+
+
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Add To Cart Css End */
