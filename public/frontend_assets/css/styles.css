@@ -480,17 +480,19 @@ height: 20rem;
   align-items: center;
 }
 
+
+
 .quantity_body .btn {
   padding: 0 10px;
   margin: 0 5px;
 }
 
-.quantity_input {
+/* .quantity_input {
   width: 70px;
   outline: none;
   border: 1px solid #eee;
   text-align: center;
-}
+} */
 
 .quantity_btns {
   border: none;
@@ -586,6 +588,10 @@ height: 20rem;
     width: 80px;
     margin-right: 10px;
 
+  }
+
+  .input-group-btn button{
+    width: 50%;
   }
 
   .product_container{

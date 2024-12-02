@@ -33,10 +33,6 @@ class FrontController extends Controller
         return $this->frontendServices->addToCart($request);
     }
 
-    public function shoppingCarts()
-    {
-        return $this->frontendServices->shoppingCarts();
-    }
     public function checkouts()
     {
         return $this->frontendServices->checkouts();

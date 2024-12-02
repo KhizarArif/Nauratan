@@ -33,7 +33,7 @@ class FrontendServices
     {
 
         $contentCart = Cart::content();
-        dd($contentCart);
+        // dd($contentCart);
         return view('frontend.allShoppingCart', compact('contentCart'));
     }
 
@@ -55,12 +55,6 @@ class FrontendServices
         }
 
         return view('frontend.allProducts', compact('products', 'subcategorySelected'));
-    }
-
-    public function shoppingCarts()
-    {
-        $contentCart = Cart::content();
-        return view('frontend.allShoppingCart', compact('contentCart'));
     }
 
     public function productDetails($request, $productSlug)
@@ -89,6 +83,7 @@ class FrontendServices
     public function addToCart($request)
     {
         $product = Product::with('productImages')->find($request->id);
+        $qty = $request->input('quantity', 1);
 
         if (empty($product)) {
             return response()->json([
@@ -114,9 +109,9 @@ class FrontendServices
 
             if ($productAlreadyExists == false) {
                 if (!empty($productImage)) {
-                    Cart::add($product->id, $product->title,$product->price, ["productImage" => $productImage]);
+                    Cart::add($product->id, $product->title, $qty, $product->price, ["productImage" => $productImage]);
                 } else {
-                    Cart::add($product->id, $product->title,$product->price);
+                    Cart::add($product->id, $product->title, $qty, $product->price);
                 }
                 $status = true;
                 $message = $product->title . ' added to Cart';
@@ -126,9 +121,9 @@ class FrontendServices
             }
         } else {
             if (!empty($productImage)) {
-                Cart::add($product->id, $product->title,$product->price, ["productImage" => $productImage]);
+                Cart::add($product->id, $product->title, $qty, $product->price, ["productImage" => $productImage]);
             } else {
-                Cart::add($product->id, $product->title,$product->price);
+                Cart::add($product->id, $product->title, $qty, $product->price);
             }
             $status = true;
             $message = $product->title . ' added to Cart';

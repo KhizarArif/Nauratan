@@ -110,7 +110,7 @@
                             <div class="col-md-2">
                                 <div class="logo">
                                     <a href="{{ route('home') }}" class="navbar-brand m-1 ">
-                                        <img src="{{ asset('frontend_assets/img/logo.png') }}" alt="logo"
+                                        <img src="{{ asset('frontend_assets/img/logo.jpg') }}" alt="logo"
                                             loading="lazy" height="50%" width="80%" />
                                     </a>
                                 </div>

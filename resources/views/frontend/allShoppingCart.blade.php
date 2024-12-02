@@ -89,16 +89,16 @@
                                     onclick="deleteToCart('{{ $content->rowId }}')">Remove</a>
                             </div>
                         </td>
-                        <td> Rs.{{ $content->price }} </td>
+                        <td> Rs.{{ number_format($content->price, 2) }} </td>
                         <td style="width: 20%;">
                             <div class="input-group quantity" style="width: 100px;">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-dark btn-minus p-2 pt-2 pb-2 sub rounded"
-                                        data-id="{{ $content->rowId }}">
+                                        data-id="{{ $content->rowId }}" >
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control  border-0 text-center" name="qty"
+                                <input type="text" class="form-control border-0  w-100" name="qty"
                                     value="{{ $content->qty }}">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-dark btn-plus p-2 pt-2 pb-2 add rounded"
@@ -109,7 +109,7 @@
                             </div>
                         </td>
 
-                        <td> <b> Rs.{{ $content->price * $content->qty }} </b> </td>
+                        <td> <b> Rs.{{ number_format($content->price * $content->qty, 2) }} </b> </td>
                     </tr>
                 @endforeach
 

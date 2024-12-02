@@ -60,7 +60,7 @@
 <!-- Bootstrap JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-<!-- <script>
+<script>
     document.getElementById('increment_btn').addEventListener('click', function() {
         const quantityValue = document.getElementById('quantity_input');
         const currentValue = parseInt(quantityValue.value);
@@ -72,14 +72,13 @@
         const currentValue = parseInt(quantityValue.value);
         quantityValue.value = currentValue - 1;
     });
-</script> -->
+</script>
 
 
 <script>
-
     const navbar = document.getElementById("main-navbar")
 
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
         if (window.pageYOffset > 0) {
             navbar.classList.add("navbar-after-scroll")
         } else {
@@ -88,7 +87,7 @@
     })
 
 
-    $('.add').click(function () {
+    $('.add').click(function() {
         var qtyElement = $(this).parent().prev();
         var qtyValue = parseInt(qtyElement.val());
 
@@ -96,7 +95,7 @@
             return;
         }
 
-        if (qtyValue < 10) {
+        if (qtyValue < 50) {
             qtyElement.val(qtyValue + 1);
 
             var rowId = $(this).data('id');
@@ -110,7 +109,7 @@
         }
     });
 
-    $('.sub').click(function () {
+    $('.sub').click(function() {
         var qtyElement = $(this).parent().next();
         var qtyValue = parseInt(qtyElement.val());
 
@@ -143,7 +142,7 @@
                 size: $size
             },
             dataType: 'json',
-            success: function (response) {
+            success: function(response) {
                 console.log(response);
                 if (response.status == false) {
                     alert(response.message);
@@ -151,7 +150,7 @@
                 }
                 window.location.reload();
             },
-            complete: function () {
+            complete: function() {
                 // Hide loader and enable buttons
                 $('.loader').hide();
                 $('.add, .sub').prop('disabled', false);
@@ -171,7 +170,7 @@
                     rowId: rowId
                 },
                 dataType: 'json',
-                success: function (response) {
+                success: function(response) {
                     window.location.reload();
                 }
             })
