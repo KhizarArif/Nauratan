@@ -96,16 +96,6 @@ Route::group(["prefix" => "dashboard"], function () {
         //     Route::delete('sub_category_image', 'deleteSubCategoryImage')->name('subcategories.deleteImage');
         // });
 
-        Route::controller(ExhibitionController::class)->prefix('exhibitions')->group(function () {
-            Route::get('', 'index')->name('exhibitions.index');
-            Route::get('create', 'create')->name('exhibitions.create');
-            Route::get('edit/{id}', 'edit')->name('exhibitions.edit');
-            Route::post('store', 'store')->name('exhibitions.store');
-            Route::delete('delete/{id}', 'destroy')->name('exhibitions.delete');
-            // Update Product Controller Image
-            Route::post('exhibition_image/update', 'updateExhibitionImage')->name('exhibitions.updateImage');
-            Route::delete('exhibition_image', 'deleteExhibitionImage')->name('exhibitions.deleteImage');
-        });
 
         Route::controller(ProductController::class)->prefix('products')->group(function () {
             Route::get('', 'index')->name('product.index');
@@ -126,18 +116,6 @@ Route::group(["prefix" => "dashboard"], function () {
                 Route::post('store', 'storeFeaturedProduct')->name('featured_products.store');
                 Route::delete('delete/{id}', 'destroyFeaturedProduct')->name('featured_products.delete');
             });
-        });
-
-        Route::controller(NewArrivalController::class)->prefix('new_arrivals')->group(function () {
-            Route::get('', 'index')->name('new_arrivals.index');
-            Route::get('create', 'create')->name('new_arrivals.create');
-            Route::get('edit/{id}', 'edit')->name('new_arrivals.edit');
-            Route::post('store', 'store')->name('new_arrivals.store');
-            Route::delete('delete/{id}', 'destroy')->name('new_arrivals.delete');
-
-            // Update Product Controller Image
-            Route::post('new_arrival_image/update', 'updateProductImage')->name('new_arrivals.updateImage');
-            Route::delete('new_arrival_image', 'deleteProductImage')->name('new_arrivals.deleteImage');
         });
 
         // Order Details

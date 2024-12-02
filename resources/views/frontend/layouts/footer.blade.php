@@ -60,7 +60,7 @@
 <!-- Bootstrap JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-<script>
+<!-- <script>
     document.getElementById('increment_btn').addEventListener('click', function() {
         const quantityValue = document.getElementById('quantity_input');
         const currentValue = parseInt(quantityValue.value);
@@ -72,9 +72,115 @@
         const currentValue = parseInt(quantityValue.value);
         quantityValue.value = currentValue - 1;
     });
-</script>
+</script> -->
+
 
 <script>
+
+    const navbar = document.getElementById("main-navbar")
+
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 0) {
+            navbar.classList.add("navbar-after-scroll")
+        } else {
+            navbar.classList.remove("navbar-after-scroll")
+        }
+    })
+
+
+    $('.add').click(function () {
+        var qtyElement = $(this).parent().prev();
+        var qtyValue = parseInt(qtyElement.val());
+
+        if ($('div').hasClass('alert-danger')) {
+            return;
+        }
+
+        if (qtyValue < 10) {
+            qtyElement.val(qtyValue + 1);
+
+            var rowId = $(this).data('id');
+            var newQty = qtyElement.val();
+
+            // Show loader and disable buttons
+            $(".loader").show();
+            $('.add').prop('disabled', true);
+
+            updateCart(rowId, newQty, $(this));
+        }
+    });
+
+    $('.sub').click(function () {
+        var qtyElement = $(this).parent().next();
+        var qtyValue = parseInt(qtyElement.val());
+
+        if (qtyValue > 1) {
+            qtyElement.val(qtyValue - 1);
+
+            var rowId = $(this).data('id');
+            var newQty = qtyElement.val();
+
+            // Show loader and disable buttons
+            $(".loader").show();
+            $('.sub').prop('disabled', true);
+
+            updateCart(rowId, newQty, $(this));
+        }
+    });
+
+    function updateCart(rowId, qty, button) {
+        console.log("rowId", rowId);
+        $size = $("#size").val();
+        $.ajax({
+            url: "{{ route('front.updateCart') }}",
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                rowId: rowId,
+                qty: qty,
+                size: $size
+            },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                if (response.status == false) {
+                    alert(response.message);
+                    $('.add, .sub').prop('disabled', false);
+                }
+                window.location.reload();
+            },
+            complete: function () {
+                // Hide loader and enable buttons
+                $('.loader').hide();
+                $('.add, .sub').prop('disabled', false);
+            }
+        })
+    }
+
+    function deleteToCart(rowId) {
+        if (confirm("Are you sure You want to delete ?")) {
+            $.ajax({
+                url: "{{ route('front.deleteToCart') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "delete",
+                data: {
+                    rowId: rowId
+                },
+                dataType: 'json',
+                success: function (response) {
+                    window.location.reload();
+                }
+            })
+
+        }
+    }
+</script>
+
+<!-- <script>
     const navbar = document.getElementById("main-navbar")
 
     window.addEventListener('scroll', function() {
@@ -112,7 +218,7 @@
             }
         })
     }
-</script>
+</script> -->
 
 @yield('customJs')
 
