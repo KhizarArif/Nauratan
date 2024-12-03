@@ -29,7 +29,6 @@
     display: flex;
     column-gap: 1rem;
     position: absolute;
-    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -58,6 +57,8 @@
     animation-name: animate-2;
     z-index: 0;
 }
+
+ 
 
 @keyframes animate-1 {
     0% {
