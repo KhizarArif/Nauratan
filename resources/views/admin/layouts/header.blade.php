@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title> Art Wings </title>
+    <title>Nauratan Admin Panel </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -97,7 +97,7 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Art Wings.
+                            </script> © Nauratan.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
