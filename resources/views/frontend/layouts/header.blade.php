@@ -109,9 +109,9 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="logo">
-                                    <a href="{{ route('home') }}" class="navbar-brand m-1 ">
+                                    <a href="{{ route('home') }}" class="navbar_brand m-1 ">
                                         <img src="{{ asset('frontend_assets/img/logo.jpg') }}" alt="logo"
-                                            loading="lazy" height="50%" width="80%" />
+                                            loading="lazy" class="navbar_brand_image" />
                                     </a>
                                 </div>
                             </div>
@@ -120,9 +120,9 @@
                             <div class="col-md-8" style="margin: auto;">
                                 <div class="navbar_categories">
                                     <?php
-                                    
+
                                     use function App\Helpers\getSubCategories;
-                                    
+
                                     $subCategories = getSubCategories();
                                     ?>
                                     @if ($subCategories->isNotEmpty())
@@ -142,11 +142,13 @@
                             {{-- Social Container Start --}}
                             <div class="col-md-2" style="margin: auto;">
                                 <ul class="social_media_container ">
-                                    <li class="nav-item">
-                                        <a class="nav-link pe-2" href="{{ route('front.cart') }}" title="Add to cart">
+                                    <li class="nav-item cart_count_container"  >
+                                        <a class="nav-link pe-2 " href="{{ route('front.cart') }}" title="Add to cart" >
                                             <i class="fas fa-shopping-cart"></i>
+                                            <div class="cart_count">{{ Cart::count() }}</div>
                                         </a>
                                     </li>
+
                                     <div class="d-flex">
                                         <li class="nav-item">
                                             <a class="nav-link pe-2" href="#!">

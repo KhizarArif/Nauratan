@@ -33,7 +33,7 @@
                                     <option value="{{ $city->id }}">{{ $city->name }}</option>
                                 @endforeach
                             @endif
-                            <option value="250">Rest of Cities</option>
+                            <option value="9999">Rest of Cities</option>
                         </select>
                     </div>
                     <div class="row mb-3">
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="description ">
                                     <p class="product_name">{{ $content->name }}</p>
-                                    <p class="product_price">Rs. {{ $content->price }}</p>
+                                    <p class="product_price">Rs. {{ number_format($content->price, 2) }}</p>
                                 </div>
 
                             </div>
@@ -175,9 +175,12 @@
                 success: function(response) {
                     console.log(response);
                     if (response.status == true) {
+                        const formatter = new Intl.NumberFormat('en-PK', { style: 'currency', currency: 'PKR' }); // Format for PKR (Pakistani Rupees)
+                        const formattedGrandTotal = formatter.format(response.grandTotal);
+
                         $('#shippingPrice').html('Rs ' + response.totalShippingCharges);
-                        $('#shippingCharge').html('Rs ' + response.totalShippingCharges);
-                        $('#grandTotal').html('Rs ' + response.grandTotal);
+                        $('#shippingCharge').html('Rs ' + response.totalShippingCharges);   
+                        $('#grandTotal').html(formattedGrandTotal);
                         $("#grandTotal_input").val(response.grandTotal);
                         $("#shippingCharge_input").val(response.totalShippingCharges);
                         $("#subtotal_input").val(response.subTotal);

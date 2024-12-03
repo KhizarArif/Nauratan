@@ -194,7 +194,7 @@ class FrontendServices
     public function getShippingAmount(Request $request)
     {
         $subTotal = Cart::subtotal(2, '.', '');
-        if ($request->city_id > 0 && $request->city_id < 240) {
+        if ($request->city_id > 0 ) {
             $shippingInfo = ShippingCharge::where('city_id', $request->city_id)->first();
 
             $grandTotal = 0;
@@ -210,7 +210,7 @@ class FrontendServices
                     "grandTotal" => $grandTotal
                 ]);
             } else {
-                $shippingInfo = ShippingCharge::where('city_id', 250)->first();
+                $shippingInfo = ShippingCharge::where('city_id', 9999)->first();
                 $totalShippingCharges = $shippingInfo->amount;
                 $grandTotal = $subTotal + $totalShippingCharges;
 

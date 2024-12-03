@@ -13,7 +13,7 @@
                                 @foreach ($cities as $city)
                                     <option value="{{ $city->id }}">{{ $city->name }}</option>
                                 @endforeach
-                                <option value="250"> Rest Of The Cities </option>
+                                <option value="9999"> Rest Of The Cities </option>
                             @endif
                         </select>
                     </div>
@@ -41,7 +41,7 @@
                     @foreach ($shippingCharges as $shippingCharge)
                         <tr>
                             <td> {{ $shippingCharge->id }} </td>
-                            <td> {{ $shippingCharge->city_id == 250 ? 'Rest Of The Cities' : $shippingCharge->name }}
+                            <td> {{ $shippingCharge->city_id == 9999 ? 'Rest Of The Cities' : $shippingCharge->name }}
                             </td>
                             <td> Rs {{ $shippingCharge->amount }} </td>
                             <td>
@@ -70,7 +70,7 @@
                 dataType: 'json',
                 success: function(response) {
                     console.log(response);
-                    toastr.success(response.message); 
+                    toastr.success(response.message);
                     window.location.reload();
                 },
                 error: function(error) {

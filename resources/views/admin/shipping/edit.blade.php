@@ -14,12 +14,12 @@
                                 @foreach ($cities as $city)
                                     <option value="{{ $city->id }}" {{ $shippingCharge->city_id == $city->id ? 'selected' : ''}} >{{ $city->name }}</option>
                                 @endforeach
-                                <option value="250"> Rest Of The Cities </option>
+                                <option value="9999"> Rest Of The Cities </option>
                             @endif
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <input type="number" class="form-control" name="amount" id="amount" value="{{ $shippingCharge->amount }}"   
+                        <input type="number" class="form-control" name="amount" id="amount" value="{{ $shippingCharge->amount }}"
                             placeholder="Shipping Amount">
                     </div>
                     <div class="col-md-2">
@@ -43,7 +43,7 @@
                 dataType: 'json',
                 success: function(response) {
                     console.log(response);
-                    toastr.success(response.message); 
+                    toastr.success(response.message);
                     window.location.href = "{{ route('shipping.create') }}";
                 },
                 error: function(error) {
