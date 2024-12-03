@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/slider.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/category.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/addToCart.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/footer.css') }}" />
 
 
     {{-- Toaster --}}

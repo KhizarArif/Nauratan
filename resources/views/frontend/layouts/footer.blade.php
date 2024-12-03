@@ -1,54 +1,44 @@
 {{-- Footer Start --}}
-<footer class="bg-dark mt-5">
-    <div class="container-fluid footer py-6 my-6 mb-0 wow bounceInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-item">
-                        <h1 class="text-primary">Art<span class="text-light">Wings</span></h1>
-                        <p class="lh-lg mb-4 text-light"> Art Wings Where art meets precision. Handcrafted resin
-                            creations for the modern home, sustainably made with love. </p>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-item">
-                        <h4 class="mb-4 text-light">Special Facilities</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <a class="mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Jewellery</a>
-                            <a class="mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Wall Clock</a>
-                            <a class="mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Costers</a>
-                            <a class="mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Candles</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-item">
-                        <h4 class="mb-4 text-light">Contact Us</h4>
-                        <div class="d-flex flex-column align-items-start">
-                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> Faisalabad, Pakistan</p>
-                            <p><i class="fa fa-phone-alt text-primary me-2"></i> (+92) 324 9660909</p>
-                            <p><i class="fas fa-envelope text-primary me-2"></i> artwingsbysm@gmail.com </p>
-                            <p><i class="fa fa-clock text-primary me-2"></i> 24/7 Hours Service</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Let’s get in touch</h3>
+            <p>Sign up for our newsletter and receive discounts & gifts</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" />
+                <button type="submit">➔</button>
+            </form>
+        </div>
+        <div class="footer-section">
+            <h4>Shop Nauratan</h4>
+            <ul>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">All products</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Information</h4>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">Returns & Exchange Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Nauratan Herbals</h4>
+            <p>Explore our collection of pure, herbal treasures to nurture your skin and hair naturally.</p>
+            <p>+92 331 2818985</p>
+            <p><a href="mailto:nauratanherbals@gmail.com">nauratanherbals@gmail.com</a></p>
         </div>
     </div>
-
-    <div class="copyright-area bg-light text-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mt-3">
-                    <div class="copy-right text-center">
-                        <p> © Copyright 2024 Art Wings. All Rights Reserved </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="footer-bottom">
+        <p>© Nauratan Herbals 2023. Powered by Steps Global</p>
     </div>
 </footer>
+
 
 {{-- Footer END --}}
 
@@ -61,13 +51,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    document.getElementById('increment_btn').addEventListener('click', function() {
+    document.getElementById('increment_btn').addEventListener('click', function () {
         const quantityValue = document.getElementById('quantity_input');
         const currentValue = parseInt(quantityValue.value);
         quantityValue.value = currentValue + 1;
     });
 
-    document.getElementById('decrement_btn').addEventListener('click', function() {
+    document.getElementById('decrement_btn').addEventListener('click', function () {
         const quantityValue = document.getElementById('quantity_input');
         const currentValue = parseInt(quantityValue.value);
         quantityValue.value = currentValue - 1;
@@ -78,7 +68,7 @@
 <script>
     const navbar = document.getElementById("main-navbar")
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.pageYOffset > 0) {
             navbar.classList.add("navbar-after-scroll")
         } else {
@@ -87,7 +77,7 @@
     })
 
 
-    $('.add').click(function() {
+    $('.add').click(function () {
         var qtyElement = $(this).parent().prev();
         var qtyValue = parseInt(qtyElement.val());
 
@@ -109,7 +99,7 @@
         }
     });
 
-    $('.sub').click(function() {
+    $('.sub').click(function () {
         var qtyElement = $(this).parent().next();
         var qtyValue = parseInt(qtyElement.val());
 
@@ -142,7 +132,7 @@
                 size: $size
             },
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 console.log(response);
                 if (response.status == false) {
                     alert(response.message);
@@ -150,7 +140,7 @@
                 }
                 window.location.reload();
             },
-            complete: function() {
+            complete: function () {
                 // Hide loader and enable buttons
                 $('.loader').hide();
                 $('.add, .sub').prop('disabled', false);
@@ -170,7 +160,7 @@
                     rowId: rowId
                 },
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     window.location.reload();
                 }
             })

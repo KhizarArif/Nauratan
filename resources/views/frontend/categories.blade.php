@@ -1,6 +1,6 @@
 <div class="container mt-5">
-    <div class="categories_container">
-        @foreach ($categories as $category)
+    @foreach ($categories as $category)
+    <div class="categories_container mt-5">
             <h1 class="categories_title">{{ $category->name }}</h1>
             <div class="row">
                 @foreach ($category->products as $product)
@@ -35,6 +35,6 @@
                 @endforeach
 
             </div>
+        </div>
         @endforeach
-    </div>
 </div>
