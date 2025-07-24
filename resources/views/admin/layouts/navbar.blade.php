@@ -3,21 +3,21 @@
     <div class="navbar-brand-box">
         <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <h2> Art Wings </h2>
+                <h2> Nuaratan </h2>
                 <img src="{{ asset('admin_assets/assets/images/logo-sm.png') }}" alt="logo-sm-light" height="22">
             </span>
             <span class="logo-lg">
-                <h1> Art Wings </h1>
+                <h1> Nuaratan </h1>
                 <img src="{{ asset('admin_assets/assets/images/logo-sm.png') }}" alt="logo-sm-light" height="22">
             </span>
         </a>
 
         <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
             <span class="logo-sm">
-                <p> Art Wings </p>
+                <p> Nuaratan </p>
             </span>
             <span class="logo-lg">
-                <p> Art Wings </p>
+                <p> Nuaratan </p>
             </span>
         </a>
     </div>
@@ -71,23 +71,18 @@
         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img class="rounded-circle header-profile-user"
-                src="{{ asset('admin_assets/assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+                src="{{ asset('admin_assets/assets/images/users/avatar-2.jpg') }}" alt="Header Avatar">
             <span class="d-none d-xl-inline-block ms-1">{{ Auth::user()->name }}</span>
             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-end">
             <!-- item-->
-            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider" style="margin-top: -7px"></div>
             <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i
                     class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
         </div>
     </div>
 
-    <div class="dropdown d-inline-block">
-        <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-            <i class="ri-settings-2-line"></i>
-        </button>
-    </div>
 
 </div>
 </div>
