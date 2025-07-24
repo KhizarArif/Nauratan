@@ -43,40 +43,40 @@
     <!-- Styles -->
     <style>
         /* Color of the links BEFORE scroll */
-        .navbar-before-scroll .nav-link,
+        /* .navbar-before-scroll .nav-link,
         .navbar-before-scroll .navbar-toggler-icon {
             color: #f3d2d2;
-        }
+        } */
 
         /* Color of the links AFTER scroll */
-        .navbar-after-scroll .nav-link,
+        /* .navbar-after-scroll .nav-link,
         .navbar-after-scroll .navbar-toggler-icon {
             color: #fff;
-        }
+        } */
 
         /* Color of the navbar AFTER scroll */
-        .navbar-after-scroll {
+        /* .navbar-after-scroll {
             background-color: #000;
-        }
+        } */
 
         /* Transition after scrolling */
-        .navbar-after-scroll {
+        /* .navbar-after-scroll {
             transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-        }
+        } */
 
         /* Transition to the initial state */
-        .navbar-before-scroll {
+        /* .navbar-before-scroll {
             transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-        }
+        } */
 
         /* An optional height of the navbar AFTER scroll */
-        .navbar.navbar-before-scroll.navbar-after-scroll {
+        /* .navbar.navbar-before-scroll.navbar-after-scroll {
             padding-top: 5px;
             padding-bottom: 5px;
-        }
+        } */
 
         /* Navbar on mobile */
-        @media (max-width: 991.98px) {
+        /* @media (max-width: 991.98px) {
             #main-navbar {
                 background-color: #131212;
             }
@@ -85,7 +85,7 @@
             .navbar-toggler-icon {
                 color: #ffffff !important;
             }
-        }
+        } */
     </style>
 </head>
 
@@ -106,20 +106,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Collapsible wrapper -->
-                    <div class="">
-                        <!-- <div class="row"> -->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <!-- <div class="col-md-2"> -->
+                    {{-- <div class="w-100"> --}}
+                       <div class="row w-100">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <div class="col-md-2"> 
                                 <div class="logo">
                                     <a href="{{ route('home') }}" class="navbar_brand m-1 ">
                                         <img src="{{ asset('frontend_assets/img/logo.jpg') }}" alt="logo"
                                             loading="lazy" class="navbar_brand_image" />
                                     </a>
                                 </div>
-                            <!-- </div> -->
+                            </div> 
 
                             {{-- Categories Container Start  --}}
-                            <!-- <div class="col-md-8" style="margin: auto;"> -->
+                            <div class="col-md-8" > 
                                 <div class="navbar_categories">
                                     <?php
 
@@ -138,46 +138,41 @@
                                     @endif
                                 </div>
 
-                            <!-- </div> -->
+                            </div>
                             {{-- Categories Container End   --}}
 
                             {{-- Social Container Start --}}
-                            <!-- <div class="col-md-2" style="margin: auto;"> -->
+                           <div class="col-md-2" > 
                                 <ul class="social_media_container ">
                                     <li class="nav-item cart_count_container">
                                         <a class="nav-link pe-2 " href="{{ route('front.cart') }}" title="Add to cart">
-                                            <i class="fas fa-shopping-cart"></i>
+                                            <i class="fas fa-shopping-cart fa-lg"></i>
                                             <div class="cart_count">{{ Cart::count() }}</div>
                                         </a>
                                     </li>
 
-                                    <div class="d-flex">
+                                    {{-- <div class="d-flex"> --}}
                                         <li class="nav-item">
                                             <a class="nav-link pe-2" href="#!">
-                                                <i class="fab fa-youtube"></i>
+                                                <i class="fab fa-youtube fa-lg"></i>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link px-2" href="#!">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link px-2" href="#!">
-                                                <i class="fab fa-twitter"></i>
+                                                <i class="fab fa-facebook-f fa-lg"></i>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link ps-2" href="#!">
-                                                <i class="fab fa-instagram"></i>
+                                                <i class="fab fa-instagram fa-lg"></i>
                                             </a>
                                         </li>
-                                    </div>
+                                    {{-- </div> --}}
                                 </ul>
-                            <!-- </div> -->
+                            </div> 
                         </div>
 
-                    </div>
+                    {{-- </div> --}}
                 </div>
 
             </div>
