@@ -1,83 +1,63 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <!-- <div class="container-fluid">
-
-        <div class="hero_img_container">
-            <h6 class="hero_title"> Nauratan </h6>
-            <img src="{{ asset('frontend_assets/img/heros.png') }}" alt="" class="hero_img">
-        </div>
-    </div> -->
-<!--
-    <div class="container-fluid">
-        <div class="banner">
-            <img src="{{ asset('frontend_assets/img/slider/Slider_01.jpg') }}" alt="" class="banner-img">
-            <img src="{{ asset('frontend_assets/img/slider/Slider_03.jpg') }}" alt="" class="banner-img">
-        </div>
-    </div> -->
-
-    <div class="container-fluid">
-        <div class="slider-wrapper">
-            <div class="slider">
-                <img id="1" src="{{ asset('frontend_assets/img/slider/Slider_01.jpg') }}" alt="First Image " class="slider_image">
-                <img id="2" src="{{ asset('frontend_assets/img/slider/Slider_03.jpg') }}" alt="Third Image " class="slider_image">
-            </div>
-        </div>
-        <div class="slider-nav">
-            <a href="#1"></a>
-            <a href="#2"></a>
+<div class="container-fluid">
+    <div class="slider-wrapper">
+        <div class="slider">
+            <img id="1" src="{{ asset('frontend_assets/img/slider/Slider_01.jpg') }}" alt="First Image " class="slider_image">
+            <img id="2" src="{{ asset('frontend_assets/img/slider/Slider_03.jpg') }}" alt="Third Image " class="slider_image">
         </div>
     </div>
+    <div class="slider-nav">
+        <a href="#1"></a>
+        <a href="#2"></a>
+    </div>
+</div>
 
-    @include('frontend.categories')
+@include('frontend.categories')
 
 @endsection
 
 @section('customJs')
-    <script>
+<script>
+    $('.add').click(function() {
+        var qtyElement = $(this).parent().prev();
+        var qtyValue = parseInt(qtyElement.val());
 
+        if ($('div').hasClass('alert-danger')) {
+            return;
+        }
 
+        if (qtyValue < 10) {
+            qtyElement.val(qtyValue + 1);
 
-        $('.add').click(function() {
-            var qtyElement = $(this).parent().prev();
-            var qtyValue = parseInt(qtyElement.val());
+            var rowId = $(this).data('id');
+            var newQty = qtyElement.val();
 
-            if ($('div').hasClass('alert-danger')) {
-                return;
-            }
+            // Show loader and disable buttons
+            $(".loader").show();
+            $('.add').prop('disabled', true);
 
-            if (qtyValue < 10) {
-                qtyElement.val(qtyValue + 1);
+            // updateCart(rowId, newQty, $(this));
+        }
+    });
 
-                var rowId = $(this).data('id');
-                var newQty = qtyElement.val();
+    $('.sub').click(function() {
+        var qtyElement = $(this).parent().next();
+        var qtyValue = parseInt(qtyElement.val());
 
-                // Show loader and disable buttons
-                $(".loader").show();
-                $('.add').prop('disabled', true);
+        if (qtyValue > 1) {
+            qtyElement.val(qtyValue - 1);
 
-                // updateCart(rowId, newQty, $(this));
-            }
-        });
+            var rowId = $(this).data('id');
+            var newQty = qtyElement.val();
 
-        $('.sub').click(function() {
-            var qtyElement = $(this).parent().next();
-            var qtyValue = parseInt(qtyElement.val());
+            // Show loader and disable buttons
+            $(".loader").show();
+            $('.sub').prop('disabled', true);
 
-            if (qtyValue > 1) {
-                qtyElement.val(qtyValue - 1);
-
-                var rowId = $(this).data('id');
-                var newQty = qtyElement.val();
-
-                // Show loader and disable buttons
-                $(".loader").show();
-                $('.sub').prop('disabled', true);
-
-                // updateCart(rowId, newQty, $(this));
-            }
-        });
-
-
-    </script>
+            // updateCart(rowId, newQty, $(this));
+        }
+    });
+</script>
 @endsection
