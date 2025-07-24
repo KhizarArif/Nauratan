@@ -12,8 +12,12 @@
     /* display: flex;
   justify-content: space-between;
   align-items: center; */
+    /* position: fixed; */
+    height: 10vh;
     width: 100%;
     padding: 0.5rem 1rem;
+    border: 1px solid red;
+    background-color: #fff;
 }
 
 .navbar_categories {
@@ -25,20 +29,25 @@
 }
 
 
+.navbar_brand{
+    width: 40px;
+    height: 40px;  
+}
+
+
 .navbar_brand_image {
-    width: 170px;
-    height: 100px;
-    margin: 1rem;
-    object-fit: fill;
+    width: 30%;
+    height: 30%; 
+    object-fit: cover;
 
 }
 
-.cart_count_container{
+.cart_count_container {
     position: relative;
 
 }
 
-.cart_count{
+.cart_count {
     position: absolute;
     top: -10px;
     right: 0px;
@@ -819,5 +828,3 @@
 }
 
 /* All Product End  */
-
-
