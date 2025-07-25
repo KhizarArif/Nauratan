@@ -1,0 +1,39 @@
+.payment-notice {
+        margin-bottom: 15px;
+        color: #666;
+    }
+
+    .payment-options {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .payment-option {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .payment-option:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .payment-option label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .payment-radio {
+        margin-right: 10px;
+    }
+
+    .bank-details {
+        margin-top: 10px;
+        margin-left: 25px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+    }
